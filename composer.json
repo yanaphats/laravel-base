@@ -1,11 +1,11 @@
 {
     "name": "sandbox-dev/laravel-html",
-    "description": "HTML and Form Builders for the Laravel Framework",
+    "description": "Laravel Html Form & Html package",
 	"type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "Sandbox Dev"
+            "name": "Sandbox"
         }
     ],
     "require": {
