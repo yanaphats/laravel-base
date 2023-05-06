@@ -5,8 +5,7 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Sandbox Dev",
-			"email": "info@sandbox.co.th"
+            "name": "Sandbox Dev"
         }
     ],
     "require": {
