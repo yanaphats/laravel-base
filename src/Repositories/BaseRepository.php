@@ -2,7 +2,7 @@
 
 namespace Sandbox\Base\Repositories;
 
-use Base\Interfaces\BaseRepositoryInterface;
+use Sandbox\Base\Interfaces\BaseRepositoryInterface;
 use Sandbox\DBEncryption\Builders\EncryptionEloquentBuilder;
 
 use Carbon\Carbon;

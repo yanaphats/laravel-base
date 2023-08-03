@@ -2,7 +2,7 @@
 
 namespace Sandbox\Base\Services;
 
-use Base\Repositories\BaseRepository;
+use Sandbox\Base\Repositories\BaseRepository;
 
 use Illuminate\Database\Eloquent\Model;
 
