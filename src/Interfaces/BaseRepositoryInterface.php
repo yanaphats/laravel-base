@@ -20,4 +20,5 @@ interface BaseRepositoryInterface
     public function grouping(array $fields = []);
     public function list(array $filters = []);
     public function listPaginated(array $filters = [], array $conditions = []);
+    public function  nextPriority(): int;
 }

@@ -84,4 +84,9 @@ abstract class BaseService
     {
         return $this->repository->listPaginated($filters, $conditions);
     }
+
+    public function nextPriority(): int
+    {
+        return $this->repository->nextPriority();
+    }
 }
