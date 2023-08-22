@@ -235,7 +235,7 @@ abstract class BaseRepository implements BaseRepositoryInterface
         return $query->paginate($perPage);
     }
 
-    public function  nextPriority(): int
+    public function nextPriority(): int
     {
         /* check if model has priority column */
         if (in_array('priority', $this->model->getConnection()->getSchemaBuilder()->getColumnListing($this->model->getTable()))) {
