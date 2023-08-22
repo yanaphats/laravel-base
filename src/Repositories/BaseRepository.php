@@ -18,7 +18,8 @@ abstract class BaseRepository implements BaseRepositoryInterface
         $this->model = $model;
     }
 
-    protected function filters($query, $filters, $order = true) {
+    protected function filters($query, $filters, $order = true)
+    {
         /* prevent order, sort, page from being filtered */
         $orderBy = $filters['order'] ?? null;
         $sortBy = $filters['sort'] ?? 'asc';
@@ -133,13 +134,13 @@ abstract class BaseRepository implements BaseRepositoryInterface
 
     public function grouping(array $fields = [], array $filters = [])
     {
-        $stringFields = count($fields) === 1 ? '`'.$fields[0].'`' : '`' . implode('`, `', $fields) . '`';
+        $stringFields = count($fields) === 1 ? '`' . $fields[0] . '`' : '`' . implode('`, `', $fields) . '`';
         $order = $filters['order'] ?? null;
         $sort = $filters['sort'] ?? 'asc';
         $query = $this->model->newQuery();
         $query->selectRaw($stringFields . ', count(*) as total')->groupBy($fields);
 
-       /* Order by */
+        /* Order by */
         if (isset($order) && isset($sort) && in_array($order, $fields)) {
             $query->orderBy($order, $sort);
         }
@@ -232,5 +233,16 @@ abstract class BaseRepository implements BaseRepositoryInterface
         }
 
         return $query->paginate($perPage);
+    }
+
+    public function  nextPriority(): int
+    {
+        /* check if model has priority column */
+        if (in_array('priority', $this->model->getConnection()->getSchemaBuilder()->getColumnListing($this->model->getTable()))) {
+            $max = $this->model->max('priority');
+            return $max + 1;
+        }
+
+        return 0;
     }
 }
