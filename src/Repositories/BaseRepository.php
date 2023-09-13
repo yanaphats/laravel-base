@@ -119,6 +119,77 @@ abstract class BaseRepository implements BaseRepositoryInterface
         return $query->delete();
     }
 
+    public function where(array $conditions)
+    {
+        $query = $this->model->newQuery();
+        return self::filters($query, $conditions);
+    }
+
+    public function whereIn(string $column, array $values)
+    {
+        return $this->model->whereIn($column, $values);
+    }
+
+    public function whereNotIn(string $column, array $values)
+    {
+        return $this->model->whereNotIn($column, $values);
+    }
+
+    public function whereBetween(string $column, array $values)
+    {
+        return $this->model->whereBetween($column, $values);
+    }
+
+    public function whereNotBetween(string $column, array $values)
+    {
+        return $this->model->whereNotBetween($column, $values);
+    }
+
+    public function whereNull(string $column)
+    {
+        return $this->model->whereNull($column);
+    }
+
+    public function whereNotNull(string $column)
+    {
+        return $this->model->whereNotNull($column);
+    }
+
+    public function whereDate(string $column, string $date)
+    {
+        return $this->model->whereDate($column, $date);
+    }
+
+    public function whereMonth(string $column, string $month)
+    {
+        return $this->model->whereMonth($column, $month);
+    }
+
+    public function whereDay(string $column, string $day)
+    {
+        return $this->model->whereDay($column, $day);
+    }
+
+    public function whereYear(string $column, string $year)
+    {
+        return $this->model->whereYear($column, $year);
+    }
+
+    public function whereTime(string $column, string $time)
+    {
+        return $this->model->whereTime($column, $time);
+    }
+
+    public function whereColumn(string $first, string $operator, string $second = null)
+    {
+        return $this->model->whereColumn($first, $operator, $second);
+    }
+
+    public function whereRaw(string $sql, array $bindings = [], string $boolean = 'and')
+    {
+        return $this->model->whereRaw($sql, $bindings, $boolean);
+    }
+
     public function translation(Model $model, array $params)
     {
         foreach ($params as $field => $locales) {
