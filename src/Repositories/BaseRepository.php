@@ -287,6 +287,11 @@ abstract class BaseRepository implements BaseRepositoryInterface
             $query->where('is_active', $status);
         }
 
+        if (isset($filters['created_by'])) {
+            $createdBy = $filters['created_by'];
+            $query->where('created_by', $createdBy);
+        }
+
         if (isset($filters['keyword'])) {
             $columns = $this->model->getConnection()->getSchemaBuilder()->getColumnListing($this->model->getTable());
             $keyword = $filters['keyword'];
